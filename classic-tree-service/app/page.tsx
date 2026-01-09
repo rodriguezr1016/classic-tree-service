@@ -1,65 +1,68 @@
-import Image from "next/image";
+import React from 'react'
+import Jumbotron from './components/Jumbotron/jumbotron'
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a Hello point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      <Jumbotron />
+      <main className='home'>
+      <p className="hidden">
+      No one cuts trees quite like Classic Tree Service! When you need work done on your trees, we are the people to call. We will handle your trees with expert care and make sure that you're happy with what you paid for.
+      </p>
+        <div className="summary">
+          <div>
+          <img src="/tree.jpeg" alt="tree" />
+
+          </div>
+          <div>
+            <h2>Small Business</h2>
+          <p>We are a small business that cares. We ensure that our clients are not only getting their moneys worth, but that they are also receiving the best care possible. With our incredibly low prices and a precise attention to detail, we firmly believe that we are the right choice for you.</p>
+
+          </div>
+        </div>
+        <div className="summary">
+          <div className='item'>
+          <h2>Customer Satisfaction Guaranteed</h2>
+          <p className='item'>
+           Your satisfaction is our priority. We aim to provide a service that will not only be up to your standards, but will also be something that we can be proud to put our names on. Furthermore, we ensure that we understand your goals and vision before starting the project so that your needs are met.
           </p>
+
+          </div>
+          <div>
+          <img className= 'item' src="/tree1.jpeg" alt="tree" />
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <h1>Services</h1>
+      <div className="services">
+        <div className='service'>
+          <img src="/trimming.jpg" alt="trimming" />
+          <h2>
+            Trimming
+          </h2>
+          <p>
+            We do all types of trimming and pruning for all types of trees big or small. Whether you need your tree to be cut back, worried about a branch falling, or just need your tree to be cleaned up, we've got you covered.
+          </p>
+
         </div>
+        <div className='service'>
+          <img src="/removal.jpg" alt="removal" />
+          <h2>Removal</h2>
+          <p>Tired of a certain tree? We can take care of that for you too. With the use of ropes and pulleys, we'll make sure the job gets done quickly and safely. Along with this service, we also provide stump grinding. After we're done, you'll hardly even notice there once was a tree there.</p>
+        </div>
+        <div className='service'>
+          <img src="/palm-tree.jpeg" alt="palm" />
+          <h2>
+            Consulting
+          </h2>
+          <p>With one quick visit we can help you decide the best course of action to take. We can help answer any of your questions about your tree. With the help of our expert opinions, we can help you make the right choice for you and your tree.</p>
+        </div>
+      </div>
+
+        
       </main>
-    </div>
-  );
+      </div>
+  )
 }
+
+export default Home

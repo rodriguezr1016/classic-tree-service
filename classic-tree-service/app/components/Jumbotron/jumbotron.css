@@ -1,0 +1,45 @@
+.jumbotron {
+    background-color: rgb(0, 63, 4);
+    display: flex;
+    align-items: center;
+    margin: 50px 0px;
+    text-align: center;
+}
+.image-container > img {
+    width: 300px;
+    height: auto;
+  }
+img {
+    box-shadow: 2px;
+    margin:20px 10px 20px 20px;
+}
+.line2 {
+   background-color: rgb(189, 174, 61);
+   width: 15px;
+   height:220px
+
+}
+p {
+    color: white;
+    margin-left: 10px;
+    font-size: 18px;
+    width:auto;
+}
+@media screen and (max-width: 730px) {
+    .line2 {
+        display: none;
+    }
+    .jumbotron {
+        background-color: white;
+    }
+    .jumbotron p {
+        display: none;
+    }
+    img {
+        margin: 0px
+    }
+    .image-container > img {
+        width: 100%;
+        height: auto;
+      }
+}
