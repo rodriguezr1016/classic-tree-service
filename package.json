@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@edgestore/react": "^0.6.0",
+    "@edgestore/server": "^0.6.0",
+    "zod": "^4.3.5"
+  }
+}
