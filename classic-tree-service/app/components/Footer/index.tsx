@@ -1,12 +1,20 @@
+"use client";
+
 import React from 'react'
 import './index.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
+import { useEdgeStore } from "../../../lib/edgestore"
+import ContactForm from '../ContactForm';
 const Footer = () => {
     const location = usePathname();
+    const [file, setFile] = React.useState<File | null>();
+    const { edgestore } = useEdgeStore();
   return (
     <footer>
+        <div className='formBox'>
+            <ContactForm />
+        </div>
         <div className='navbar'>
         <nav>
             <ul>

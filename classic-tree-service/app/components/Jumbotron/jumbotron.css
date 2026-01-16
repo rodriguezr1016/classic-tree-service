@@ -1,9 +1,21 @@
 .jumbotron {
-    background-color: rgb(0, 63, 4);
-    display: flex;
-    align-items: center;
-    margin: 50px 0px;
     text-align: center;
+    background-color: #003f04;
+    align-items: center;
+    display: flex
+;
+}
+@media screen and (max-width: 730px) {
+    .jumbotron {
+        margin: 3.125rem 1rem;
+
+    }
+}
+@media screen and (min-width: 730px) {
+    .jumbotron {
+        margin: 3.125rem 12rem;
+
+    }
 }
 .image-container > img {
     width: 300px;
@@ -25,6 +37,11 @@ p {
     font-size: 18px;
     width:auto;
 }
+@media screen and (min-width:730px) {
+    .home {
+        margin: 0 12rem;
+    }
+}
 @media screen and (max-width: 730px) {
     .line2 {
         display: none;
@@ -42,4 +59,8 @@ p {
         width: 100%;
         height: auto;
       }
+      .home {
+        margin: 0 1rem;
+      }
+      
 }

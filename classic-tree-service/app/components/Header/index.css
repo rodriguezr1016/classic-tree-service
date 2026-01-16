@@ -4,6 +4,7 @@
     width: 100%;
     height:60px;
     font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 .contact:hover {
     transition:all .5s;
@@ -23,7 +24,6 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
 }
 .bname {
     padding-top: 30px;
