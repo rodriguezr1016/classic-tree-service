@@ -123,7 +123,7 @@ React.useEffect(() => {
       setPhone("");
       setEmail("");
       setMessage("");
-      setJobType("")
+      setJobType("Tree Trimming")
       setFiles([]);
       setProgress({});
       setCompanyWebsite("");
@@ -137,20 +137,21 @@ React.useEffect(() => {
 
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: 560, display: "grid", gap: 12 }}>
-      <h2 style={{textAlign: 'start'}}>Request a Quote</h2>
+      <h2 style={{textAlign: 'start', margin: 0}}>Request a Quote</h2>
 
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Name *"
         required
+        style={{height:"25px", borderRadius:"12px"}}
       />
-      <div style={{display: 'flex'}}>
-        <input style={{flexGrow: 1}} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
-        <input style={{flexGrow: 1}} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+      <div style={{display: 'flex', gap: "10px", width:"100%"}}>
+        <input style={{height:"25px", borderRadius:"12px", flexGrow: 1}} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
+        <input style={{height:"25px", borderRadius:"12px", flexGrow: 1}} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
       </div>
       <label style={{textAlign:'start'}}>Job Type:</label>
-        <select value={jobType} onChange={(e) => setJobType(e.target.value)}id="cars" name="cars">
+        <select style={{height:"25px", borderRadius:"12px"}} value={jobType} onChange={(e) => setJobType(e.target.value)}id="cars" name="cars">
         <option value="Tree Trimming">Tree Trimming</option>
         <option value="Tree Removal">Tree Removal</option>
         <option value="Stump Removal">Stump Removal</option>
@@ -161,6 +162,7 @@ React.useEffect(() => {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Message (optional)"
         rows={4}
+        style={{borderRadius:"12px"}}
       />
 
       <div style={{ border: "1px solid #e5e5e5", borderRadius: 12, padding: 12 }}>
@@ -272,11 +274,9 @@ React.useEffect(() => {
         {status === "submitting" ? "Submitting..." : "Submit"}
       </button>
 
-      {status === "success" && <p>Thanks! We’ll contact you soon.</p>}
+      {status === "success" && <p style={{color:"black"}}>Thanks! We’ll contact you soon.</p>}
       {status === "error" && <p style={{ color: "crimson" }}>{error}</p>}
-      {!phone.trim() && !email.trim() && (
-        <p style={{ fontSize: 12, opacity: 0.8 }}>Please enter a phone number or email.</p>
-      )}
+    
     </form>
   );
 }

@@ -48,11 +48,6 @@ img {
     align-items: center;
 
 }
-
-.summary img {
-    width: 400px;
-    height: auto;
-}
 .services div {
     display: flex;
     flex-wrap: wrap;
@@ -77,6 +72,18 @@ img {
         order: 1
     }
 }
+@media screen and (min-width:450px) {
+    .summary img {
+    width: 400px;
+    height: auto;
+}
+}
+@media screen and (max-width:450px) {
+    .summary img {
+    width: 100%;
+    height: auto;
+}
+}
 /*About Us CSS */
 .about {
     display: flex;
@@ -89,12 +96,18 @@ img {
     flex-wrap: wrap;
     justify-content: center;
 }
-@media screen and (max-width: 730px) {
+
+@media screen and (max-width: 350px) {
+    .ins {
+        padding-bottom: 50px;
+    }
+}
+@media screen and (max-width: 900px) {
     .ins {
         margin:0 1rem;
     }
 }
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 900px) {
     .ins {
         margin:0 12rem;
     }
@@ -111,7 +124,7 @@ img {
 .more img {
     width: 100%;
     height: auto;
-
+    margin-top: 40px;
 }
 .about p {
     color: gray;
@@ -122,12 +135,12 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
 }
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 900px) {
     .info {
         margin:0 1rem;
     }
 }
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 900px) {
     .info {
         margin:0 12rem;
     }

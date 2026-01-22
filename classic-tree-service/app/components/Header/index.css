@@ -25,6 +25,11 @@ header {
     flex-wrap: wrap;
     justify-content: center;
 }
+@media screen and (max-width: 322px){
+    .header a{
+    font-size: .9rem;
+}
+}
 .bname {
     padding-top: 30px;
     margin-bottom: 5px;
@@ -48,8 +53,20 @@ ul {
 a {
     text-decoration: none;
     color: black;
-    font-size: larger;
     
+}
+@media screen and (min-width: 371px){
+    a {
+        font-size: larger;
+    }
+    .contact {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 426px){
+    .contact {
+        font-size: 20px;
+    }
 }
 ul a {
     color: gray
@@ -59,5 +76,4 @@ ul a {
   }
   .contact a {
     color: white;
-    font-size: 24px;
   }

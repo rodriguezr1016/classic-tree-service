@@ -5,13 +5,13 @@
     display: flex
 ;
 }
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 1080px) {
     .jumbotron {
         margin: 3.125rem 1rem;
 
     }
 }
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 1080px) {
     .jumbotron {
         margin: 3.125rem 12rem;
 
@@ -37,7 +37,7 @@ p {
     font-size: 18px;
     width:auto;
 }
-@media screen and (min-width:730px) {
+@media screen and (min-width:1080px) {
     .home {
         margin: 0 12rem;
     }
@@ -47,7 +47,9 @@ p {
         display: none;
     }
     .jumbotron {
-        background-color: white;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
     }
     .jumbotron p {
         display: none;
@@ -59,8 +61,10 @@ p {
         width: 100%;
         height: auto;
       }
-      .home {
-        margin: 0 1rem;
-      }
       
+}
+@media screen and (max-width:1080px) {
+    .home {
+        margin: 0 1rem;
+    }
 }
