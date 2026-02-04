@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClientProviders from "./ClientProviders";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: 'Classic Tree Service | Tree Trimming & Removal in Modesto, CA | Tree Care Experts | Serving Modesto, Merced, & Surrounding Areas | Classic Tree Service',
