@@ -1,18 +1,21 @@
-import React from 'react'
-import './jumbotron.css'
+import React from "react";
+import "./jumbotron.css";
+
 const Jumbotron = () => {
   return (
-    <div className='jumbotron'>
+    <div className="jumbotron">
       <div className="image-container">
-        <img src="/sun-tree.jpeg" alt="trees" />
-
+        <img src="/sun-tree.jpeg" alt="Tree service team working in Modesto, California" />
       </div>
-        <div className='line2'>
-
-        </div>
-        <p>No one cuts trees quite like Classic Tree Service! When you need work done on your trees, we are the people to call. We will handle your trees with expert care and make sure that you're happy with what you paid for.</p>
+      <div className="line2"></div>
+      <h1>Professional Tree Service in Modesto, CA</h1>
+      <p>
+        No one cuts trees quite like Classic Tree Service. We provide safe, reliable,
+        and affordable tree trimming, tree removal, and stump grinding for homes and
+        businesses in Modesto, Merced, and surrounding areas.
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default Jumbotron
+export default Jumbotron;
