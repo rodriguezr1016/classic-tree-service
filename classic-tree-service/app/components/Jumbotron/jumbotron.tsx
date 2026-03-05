@@ -8,7 +8,6 @@ const Jumbotron = () => {
         <img src="/sun-tree.jpeg" alt="Tree service team working in Modesto, California" />
       </div>
       <div className="line2"></div>
-      <h1>Professional Tree Service in Modesto, CA</h1>
       <p>
         No one cuts trees quite like Classic Tree Service. We provide safe, reliable,
         and affordable tree trimming, tree removal, and stump grinding for homes and

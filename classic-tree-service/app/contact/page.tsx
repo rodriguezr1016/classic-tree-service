@@ -12,13 +12,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main style={{ padding: "2rem 1rem", maxWidth: 900, margin: "0 auto" }}>
+    <main style={{ padding: "2rem 1rem", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", maxWidth: 900, margin: "0 auto" }}>
       <h1>Contact Classic Tree Service</h1>
-      <p>
+      <p style={{color: "black"}}>
         Need tree trimming, tree removal, or stump grinding in Modesto, Merced, or
         nearby areas? Request a free estimate below.
       </p>
-      <ContactForm />
     </main>
   );
 }
