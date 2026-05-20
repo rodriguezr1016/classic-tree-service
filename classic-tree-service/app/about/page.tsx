@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ const About = () => {
     <div className="about">
       <h1>About Classic Tree Service</h1>
       <div className="ins">
-        <img src="/sky-tree.jpeg" alt="Healthy trees in California" />
+        <Image src="/sky-tree.jpeg" alt="Healthy trees in California" width={554} height={364} />
         <h2 className="who">Who We Are</h2>
         <p>
           Classic Tree Service is a small, dedicated team committed to providing
@@ -28,7 +29,7 @@ const About = () => {
       </div>
       <div className="info">
         <div className="more">
-          <img src="3-tree copy.jpg" alt="Tree trimming service" />
+          <Image src="/3-tree copy.jpg" alt="Tree trimming service" width={636} height={318} />
           <h2>Services</h2>
           <p>
             At Classic Tree Service, we specialize in tree trimming, tree removal,
@@ -39,7 +40,7 @@ const About = () => {
           </p>
         </div>
         <div className="more">
-          <img src="yellow-tree.jpeg" alt="Licensed and insured tree service" />
+          <Image src="/yellow-tree.jpeg" alt="Licensed and insured tree service" width={636} height={318} />
           <h2>Licensed and Insured</h2>
           <p>
             Classic Tree Service is fully licensed and insured, ensuring safe and

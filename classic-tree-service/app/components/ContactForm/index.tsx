@@ -11,6 +11,7 @@ export default function ContactWithUploadForm() {
   const [name, setName] = React.useState("");
   const [phone, setPhone] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [location, setLocation] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [jobType, setJobType] = React.useState("Tree Trimming")
 
@@ -103,6 +104,7 @@ React.useEffect(() => {
           name,
           phone,
           email,
+          location,
           message,
           jobType,
           imageUrls,
@@ -122,14 +124,15 @@ React.useEffect(() => {
       setName("");
       setPhone("");
       setEmail("");
+      setLocation("");
       setMessage("");
       setJobType("Tree Trimming")
       setFiles([]);
       setProgress({});
       setCompanyWebsite("");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setError(err?.message ?? "Network/server error.");
+      setError(err instanceof Error ? err.message : "Network/server error.");
     }
   }
 
@@ -150,6 +153,12 @@ React.useEffect(() => {
         <input style={{height:"25px", borderRadius:"12px", flexGrow: 1}} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
         <input style={{height:"25px", borderRadius:"12px", flexGrow: 1}} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
       </div>
+      <input
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        placeholder="Job location or city"
+        style={{height:"25px", borderRadius:"12px"}}
+      />
       <label style={{textAlign:'start'}}>Job Type:</label>
         <select style={{height:"25px", borderRadius:"12px"}} value={jobType} onChange={(e) => setJobType(e.target.value)}id="cars" name="cars">
         <option value="Tree Trimming">Tree Trimming</option>

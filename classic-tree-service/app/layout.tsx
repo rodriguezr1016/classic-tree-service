@@ -4,22 +4,24 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClientProviders from "./ClientProviders";
 import { Analytics } from "@vercel/analytics/next";
-
-const siteUrl = "https://www.classic-tree-service.com";
+import { primaryPhone, serviceAreas, siteUrl, treeServices } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Classic Tree Service | Tree Service in Modesto, CA",
+    default: "Classic Tree Service | Affordable Tree Service in Modesto, CA",
     template: "%s | Classic Tree Service",
   },
   description:
-    "Classic Tree Service provides tree trimming, tree removal, and stump grinding in Modesto, Merced, and nearby California communities. Request a free estimate.",
+    "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and nearby California communities. Request a free estimate.",
   keywords: [
+    "affordable tree service Modesto",
     "tree service Modesto",
     "tree trimming Modesto",
     "tree removal Modesto",
     "stump grinding Modesto",
+    "palm tree trimming Modesto",
+    "cheap tree removal Modesto",
     "tree service Merced",
     "arborist near me",
     "Classic Tree Service",
@@ -39,9 +41,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Classic Tree Service | Tree Service in Modesto, CA",
+    title: "Classic Tree Service | Affordable Tree Service in Modesto, CA",
     description:
-      "Professional tree trimming, removal, and stump grinding for homes and businesses in Modesto and nearby areas.",
+      "Affordable tree trimming, removal, stump grinding, palm tree care, and cleanup for homes and businesses in Modesto and nearby areas.",
     url: siteUrl,
     siteName: "Classic Tree Service",
     locale: "en_US",
@@ -49,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Classic Tree Service | Tree Service in Modesto, CA",
+    title: "Classic Tree Service | Affordable Tree Service in Modesto, CA",
     description:
-      "Professional tree trimming, removal, and stump grinding in Modesto, Merced, and nearby California areas.",
+      "Affordable tree trimming, removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and nearby California areas.",
   },
 };
 
@@ -65,17 +67,42 @@ export default function RootLayout({
     "@type": "TreeService",
     name: "Classic Tree Service",
     url: siteUrl,
-    image: `${siteUrl}/sun-tree.jpeg`,
+    image: `${siteUrl}/trimming.jpg`,
+    telephone: primaryPhone,
+    priceRange: "Affordable tree service estimates",
     description:
-      "Classic Tree Service provides tree trimming, tree removal, and stump grinding in Modesto, Merced, and surrounding California communities.",
-    areaServed: ["Modesto, CA", "Merced, CA", "Central Valley, CA"],
+      "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and surrounding California communities.",
+    areaServed: serviceAreas.map((area) => `${area.name}, ${area.region}`),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Modesto",
       addressRegion: "CA",
       addressCountry: "US",
     },
-    serviceType: ["Tree Trimming", "Tree Removal", "Stump Grinding"],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "07:00",
+        closes: "18:00",
+      },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: primaryPhone,
+      contactType: "customer service",
+      areaServed: "Central Valley, CA",
+    },
+    makesOffer: treeServices.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.summary,
+        areaServed: serviceAreas.map((area) => `${area.name}, ${area.region}`),
+      },
+    })),
+    serviceType: [...treeServices.map((service) => service.title), "Storm Cleanup"],
   };
 
   return (

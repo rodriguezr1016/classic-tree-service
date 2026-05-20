@@ -1,71 +1,189 @@
-footer {
-    text-align: center;
-    place-items: center;
+.site-footer {
+  background: var(--green-900);
+  color: var(--white);
+  margin-top: 3rem;
 }
-@media screen and (max-width: 900px){
-    footer {
-        margin: 100px 1rem 0px 1rem;
-    }
-}
-@media screen and (min-width: 900px){
-    footer {
-        margin: 100px 7rem 0px 7rem;
-    }
-}
-@media screen and (max-width: 320px){
-    .navbar a{
-    font-size: .458rem;
-}
-}
-.navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.navbar nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 24px ;
-    
-} 
-ul a:hover {
-    color: rgb(0, 63, 4)
-    
-}
-.navbar li {
-    padding: 0 10px;
-    border-bottom: 1px solid gray;
-}
-.navbar img {
-    box-shadow: none;
-}
-.formBox {
-    display: block;
 
+.footer-quote {
+  align-items: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.85fr) minmax(340px, 0.75fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: clamp(3rem, 7vw, 5rem) 1.25rem;
 }
-@media screen and (max-width:555px) {
-    .navbar nav{
-        font-size:18px;
-    }
+
+.footer-quote h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0;
 }
-@media screen and (max-width:493px) {
-    .navbar nav{
-        font-size:16px;
-    }
+
+.footer-quote p {
+  color: #dfe9df;
+  max-width: 640px;
 }
-@media screen and (max-width:465px) {
-    .navbar nav{
-        font-size:14px;
-    }
+
+.footer-quote form {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  color: var(--ink);
+  display: grid;
+  gap: 0.85rem;
+  max-width: none !important;
+  padding: 1.25rem;
 }
-@media screen and (max-width:439px) {
-    .navbar nav{
-        font-size:12px;
-    }
+
+.footer-quote form h2 {
+  color: var(--green-900);
+  font-size: 1.55rem;
 }
-@media screen and (max-width:411px) {
-    .navbar nav{
-        font-size:10px;
-    }
+
+.footer-quote label {
+  color: var(--green-900);
+  font-weight: 800;
+}
+
+.footer-quote input,
+.footer-quote select,
+.footer-quote textarea {
+  border: 1px solid var(--line) !important;
+  border-radius: 6px !important;
+  color: var(--ink);
+  font: inherit;
+  min-height: 44px !important;
+  padding: 0.65rem 0.75rem;
+  width: 100%;
+}
+
+.footer-quote textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.footer-quote button[type="submit"] {
+  background: var(--gold);
+  border: 0;
+  border-radius: 6px;
+  color: #1f1708;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 900;
+  min-height: 48px;
+}
+
+.footer-quote button[type="submit"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.navbar {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 1.5rem 1.25rem;
+}
+
+.footer-brand {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer-brand strong {
+  color: var(--white);
+  font-size: 1.15rem;
+}
+
+.footer-brand span {
+  color: #c9d5cb;
+}
+
+.footer-brand a {
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: #dfe9df;
+  font-weight: 800;
+}
+
+.navbar a:hover,
+.navbar .active a {
+  color: var(--gold);
+}
+
+.footer-seo-links {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 1.5rem 1.25rem 2rem;
+}
+
+.footer-seo-links h3 {
+  color: var(--white);
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.footer-seo-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-seo-links a {
+  color: #c9d5cb;
+  font-weight: 700;
+}
+
+.footer-seo-links a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 860px) {
+  .footer-quote,
+  .navbar {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-quote {
+    display: grid;
+  }
+
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-seo-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-quote form > div:nth-of-type(1) {
+    flex-direction: column;
+  }
 }

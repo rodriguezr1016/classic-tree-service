@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { dbConnect } from "@/lib/mongodb";
 import { Lead } from "../../../models/leads";
-import { ok } from "assert";
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -16,6 +15,7 @@ export async function POST(req: Request) {
   const name = String(body?.name ?? "").trim();
   const phone = String(body?.phone ?? "").trim();
   const email = String(body?.email ?? "").trim();
+  const location = String(body?.location ?? "").trim();
   const message = String(body?.message ?? "").trim();
   const imageUrls = Array.isArray(body?.imageUrls) ? body.imageUrls.filter(Boolean) : [];
   const jobType = String(body?.jobType ?? "").trim();
@@ -32,6 +32,7 @@ export async function POST(req: Request) {
     name,
     phone,
     email,
+    location,
     message,
     imageUrls,
     jobType,

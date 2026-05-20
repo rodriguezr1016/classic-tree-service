@@ -4,14 +4,18 @@ import { mustGetEnv } from "./env";
 const uri = mustGetEnv("MONGODB_URI");
 const dbName = process.env.MONGODB_DB;
 
-let cached = (global as any).mongoose as {
+type MongooseCache = {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
 };
 
-if (!cached) {
-  cached = (global as any).mongoose = { conn: null, promise: null };
-}
+const globalForMongoose = globalThis as typeof globalThis & {
+  mongoose?: MongooseCache;
+};
+
+const cached: MongooseCache = globalForMongoose.mongoose ?? { conn: null, promise: null };
+
+globalForMongoose.mongoose = cached;
 
 export async function dbConnect() {
   if (cached.conn) return cached.conn;

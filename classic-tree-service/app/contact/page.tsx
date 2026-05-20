@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import ContactForm from "@/app/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Free Tree Service Estimate",
   description:
-    "Request a free tree service estimate from Classic Tree Service. Upload photos and get help with tree trimming, removal, and stump grinding.",
+    "Request a free affordable tree service estimate from Classic Tree Service. Upload photos and get help with tree trimming, removal, stump grinding, palm trimming, and cleanup.",
   alternates: {
     canonical: "/contact",
   },
@@ -12,11 +11,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main style={{ padding: "2rem 1rem", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", maxWidth: 900, margin: "0 auto" }}>
+    <main className="contact-page">
+      <p className="eyebrow">Free estimate</p>
       <h1>Contact Classic Tree Service</h1>
-      <p style={{color: "black"}}>
+      <p>
         Need tree trimming, tree removal, or stump grinding in Modesto, Merced, or
-        nearby areas? Request a free estimate below.
+        nearby areas? Request a free estimate below and ask about affordable bundled
+        pricing for removal, cleanup, and stump grinding.
       </p>
     </main>
   );

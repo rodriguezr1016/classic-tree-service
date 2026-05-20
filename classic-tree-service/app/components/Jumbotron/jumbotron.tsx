@@ -1,11 +1,17 @@
 import React from "react";
 import "./jumbotron.css";
+import Image from "next/image";
 
 const Jumbotron = () => {
   return (
     <div className="jumbotron">
       <div className="image-container">
-        <img src="/sun-tree.jpeg" alt="Tree service team working in Modesto, California" />
+        <Image
+          src="/trimming.jpg"
+          alt="Tree service team working in Modesto, California"
+          width={900}
+          height={1200}
+        />
       </div>
       <div className="line2"></div>
       <p>
