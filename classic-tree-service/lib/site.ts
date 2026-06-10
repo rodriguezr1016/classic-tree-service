@@ -1,4 +1,7 @@
 export const siteUrl = "https://www.classic-tree-service.com";
+export const businessName = "Classic Tree Service";
+export const businessDescription =
+  "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and surrounding Central Valley communities.";
 
 export const serviceAreas = [
   { name: "Modesto", slug: "modesto", region: "CA" },
@@ -47,3 +50,27 @@ export const treeServices = [
 
 export const primaryPhone = "+12096050373";
 export const displayPhone = "(209) 605-0373";
+export const logoPath = "/logo-word.png";
+
+export const faqs = [
+  {
+    question: "How much does tree service cost in Modesto?",
+    answer:
+      "Tree service pricing depends on the tree size, access, safety risks, cleanup needs, and whether you need trimming, removal, or stump grinding. Classic Tree Service provides free estimates so you can compare affordable options before scheduling work.",
+  },
+  {
+    question: "Do you offer free tree service estimates?",
+    answer:
+      "Yes. You can call or request an online estimate and upload photos of the tree, access points, nearby fences, roofs, lines, or other details that help us quote the job clearly.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "Classic Tree Service serves Modesto, Merced, Ceres, Turlock, Riverbank, Oakdale, Salida, and nearby Central Valley communities.",
+  },
+  {
+    question: "Can stump grinding be bundled with tree removal?",
+    answer:
+      "Yes. Bundling stump grinding with tree removal is often a practical way to save time and compare cleanup options in one estimate.",
+  },
+];

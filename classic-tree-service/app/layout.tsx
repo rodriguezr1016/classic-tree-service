@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClientProviders from "./ClientProviders";
 import { Analytics } from "@vercel/analytics/next";
-import { primaryPhone, serviceAreas, siteUrl, treeServices } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -62,49 +62,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const localBusinessJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TreeService",
-    name: "Classic Tree Service",
-    url: siteUrl,
-    image: `${siteUrl}/trimming.jpg`,
-    telephone: primaryPhone,
-    priceRange: "Affordable tree service estimates",
-    description:
-      "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and surrounding California communities.",
-    areaServed: serviceAreas.map((area) => `${area.name}, ${area.region}`),
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Modesto",
-      addressRegion: "CA",
-      addressCountry: "US",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "07:00",
-        closes: "18:00",
-      },
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: primaryPhone,
-      contactType: "customer service",
-      areaServed: "Central Valley, CA",
-    },
-    makesOffer: treeServices.map((service) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: service.title,
-        description: service.summary,
-        areaServed: serviceAreas.map((area) => `${area.name}, ${area.region}`),
-      },
-    })),
-    serviceType: [...treeServices.map((service) => service.title), "Storm Cleanup"],
-  };
-
   return (
     <html lang="en">
       <body>
@@ -113,10 +70,6 @@ export default function RootLayout({
           {children}
           <Footer />
         </ClientProviders>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
         <Analytics />
       </body>
     </html>

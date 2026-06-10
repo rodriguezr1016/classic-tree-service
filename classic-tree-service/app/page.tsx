@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { displayPhone, primaryPhone, serviceAreas, treeServices } from "@/lib/site";
+import { displayPhone, faqs, primaryPhone, serviceAreas, treeServices } from "@/lib/site";
+import { homePageSchema, jsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Affordable Tree Service in Modesto, CA",
@@ -144,6 +145,21 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="section faq-section" aria-labelledby="faq-title">
+        <div className="section__heading">
+          <p className="eyebrow">Questions homeowners ask</p>
+          <h2 id="faq-title">Tree service questions, answered clearly.</h2>
+        </div>
+        <div className="faq-list">
+          {faqs.map((item) => (
+            <article key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="final-cta" aria-labelledby="cta-title">
         <h2 id="cta-title">Need an affordable tree service estimate?</h2>
         <p>
@@ -159,6 +175,10 @@ const Home = () => {
           </Link>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(homePageSchema()) }}
+      />
     </main>
   );
 };

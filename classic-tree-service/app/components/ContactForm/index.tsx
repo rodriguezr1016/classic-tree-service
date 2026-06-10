@@ -112,10 +112,14 @@ React.useEffect(() => {
         }),
       });
 
-      const data = await res.json();
+      const contentType = res.headers.get("content-type");
+      const data = contentType?.includes("application/json")
+        ? await res.json()
+        : { ok: false, error: await res.text() };
+
       if (!res.ok || !data.ok) {
         setStatus("error");
-        setError(data?.error ?? "Something went wrong.");
+        setError(data?.error || "Something went wrong. Please call us directly.");
         return;
       }
 

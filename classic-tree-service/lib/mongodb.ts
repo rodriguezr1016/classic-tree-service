@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 import { mustGetEnv } from "./env";
 
-const uri = mustGetEnv("MONGODB_URI");
-const dbName = process.env.MONGODB_DB;
-
 type MongooseCache = {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
@@ -21,6 +18,9 @@ export async function dbConnect() {
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
+    const uri = mustGetEnv("MONGODB_URI");
+    const dbName = process.env.MONGODB_DB;
+
     cached.promise = mongoose
       .connect(uri, { dbName })
       .then((m) => m);

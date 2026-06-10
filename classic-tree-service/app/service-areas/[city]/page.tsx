@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { displayPhone, primaryPhone, serviceAreas, siteUrl, treeServices } from "@/lib/site";
+import { jsonLd, serviceAreaPageSchema } from "@/lib/schema";
 
 type PageProps = {
   params: Promise<{ city: string }>;
@@ -34,17 +35,6 @@ export default async function ServiceAreaPage({ params }: PageProps) {
   const { city } = await params;
   const area = serviceAreas.find((item) => item.slug === city);
   if (!area) notFound();
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TreeService",
-    name: `Classic Tree Service - ${area.name}, ${area.region}`,
-    url: `${siteUrl}/service-areas/${area.slug}`,
-    telephone: primaryPhone,
-    areaServed: `${area.name}, ${area.region}`,
-    priceRange: "Affordable tree service estimates",
-    serviceType: treeServices.map((service) => service.title),
-  };
 
   return (
     <main className="detail-page">
@@ -105,7 +95,7 @@ export default async function ServiceAreaPage({ params }: PageProps) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(serviceAreaPageSchema(area)) }}
       />
     </main>
   );
