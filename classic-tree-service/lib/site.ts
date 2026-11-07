@@ -1,7 +1,7 @@
 export const siteUrl = "https://www.classic-tree-service.com";
 export const businessName = "Classic Tree Service";
 export const businessDescription =
-  "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and surrounding Central Valley communities.";
+  "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Oakdale, and surrounding Central Valley communities.";
 
 export const serviceAreas = [
   { name: "Modesto", slug: "modesto", region: "CA" },
@@ -18,7 +18,7 @@ export const treeServices = [
     title: "Tree Trimming",
     slug: "tree-trimming",
     image: "/trimming.jpg",
-    alt: "Affordable tree trimming in Modesto CA",
+    alt: "Leafy trees beside a residential roof and garden",
     summary:
       "Affordable tree trimming, pruning, crown cleanup, branch reduction, and roof clearance for homes and businesses.",
   },
@@ -26,7 +26,7 @@ export const treeServices = [
     title: "Tree Removal",
     slug: "tree-removal",
     image: "/removal.jpg",
-    alt: "Tree removal crew safely removing a tree",
+    alt: "Worker on a tall stripped tree trunk beside a house",
     summary:
       "Safe tree removal for dead, leaning, crowded, storm-damaged, or unwanted trees with cleanup options.",
   },
@@ -34,7 +34,7 @@ export const treeServices = [
     title: "Stump Grinding",
     slug: "stump-grinding",
     image: "/tree1.jpeg",
-    alt: "Stump grinding and yard cleanup service",
+    alt: "View up a tree trunk into a leafy canopy",
     summary:
       "Stump grinding after removals or as a standalone service to reclaim yard space and reduce trip hazards.",
   },
@@ -42,7 +42,7 @@ export const treeServices = [
     title: "Palm Tree Care",
     slug: "palm-tree-care",
     image: "/palm-tree.jpeg",
-    alt: "Palm tree trimming and skinning service",
+    alt: "Fan palm with a full crown of green fronds",
     summary:
       "Palm trimming, frond removal, shaping, seasonal cleanup, and affordable maintenance for local properties.",
   },

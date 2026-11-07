@@ -1,3 +1,4 @@
+import { serviceContent } from "@/lib/service-content";
 import {
   businessDescription,
   businessName,
@@ -58,13 +59,27 @@ export function faqSchema() {
 
 export function businessSchema() {
   return {
-    "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "TreeService"],
+    "@type": "HomeAndConstructionBusiness",
     "@id": ids.business,
     name: businessName,
-    legalName: businessName,
     description: businessDescription,
     url: siteUrl,
     telephone: primaryPhone,
+    paymentAccepted: "Cash, Check, Zelle",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "00:00",
+        closes: "00:00",
+      },
+    ],
     image: [
       absoluteUrl("/trimming.jpg"),
       absoluteUrl("/removal.jpg"),
@@ -79,28 +94,11 @@ export function businessSchema() {
       width: 227,
       height: 185,
     },
-    priceRange: "Free estimates and affordable tree service pricing",
-    currenciesAccepted: "USD",
-    paymentAccepted: ["Cash", "Check", "Credit Card"],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Modesto",
-      addressRegion: "CA",
-      addressCountry: "US",
-    },
     areaServed: serviceAreas.map((area) => ({
       "@type": "City",
       name: `${area.name}, ${area.region}`,
       url: absoluteUrl(`/service-areas/${area.slug}`),
     })),
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "07:00",
-        closes: "18:00",
-      },
-    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -171,7 +169,7 @@ export function homePageSchema() {
         "@type": "WebPage",
         "@id": `${siteUrl}/#webpage`,
         url: siteUrl,
-        name: "Affordable Tree Service in Modesto, CA",
+        name: "Professional Tree Services in Modesto, CA",
         description: businessDescription,
         isPartOf: { "@id": ids.website },
         about: { "@id": ids.business },
@@ -214,7 +212,7 @@ export function servicePageSchema(service: (typeof treeServices)[number]) {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `${service.title} in Modesto, CA`,
+        name: serviceContent[service.slug].heading,
         description: service.summary,
         isPartOf: { "@id": ids.website },
         about: { "@id": `${pageUrl}#service` },
@@ -226,7 +224,7 @@ export function servicePageSchema(service: (typeof treeServices)[number]) {
       {
         "@type": "Service",
         "@id": `${pageUrl}#service`,
-        name: `${service.title} in Modesto, CA`,
+        name: serviceContent[service.slug].heading,
         serviceType: service.title,
         description: service.summary,
         url: pageUrl,

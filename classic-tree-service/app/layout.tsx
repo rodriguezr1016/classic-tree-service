@@ -14,21 +14,6 @@ export const metadata: Metadata = {
   },
   description:
     "Classic Tree Service provides affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in Modesto, Merced, and nearby California communities. Request a free estimate.",
-  keywords: [
-    "affordable tree service Modesto",
-    "tree service Modesto",
-    "tree trimming Modesto",
-    "tree removal Modesto",
-    "stump grinding Modesto",
-    "palm tree trimming Modesto",
-    "cheap tree removal Modesto",
-    "tree service Merced",
-    "arborist near me",
-    "Classic Tree Service",
-  ],
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,

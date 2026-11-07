@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,26 +6,25 @@ import React from "react";
 import { displayPhone, faqs, primaryPhone, serviceAreas, treeServices } from "@/lib/site";
 import { homePageSchema, jsonLd } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Affordable Tree Service in Modesto, CA",
-  description:
-    "Affordable tree trimming, tree removal, stump grinding, palm trimming, and storm cleanup in Modesto, Merced, Ceres, Turlock, Riverbank, and nearby Central Valley areas.",
-  alternates: {
-    canonical: "/",
-  },
-};
+export const metadata: Metadata = pageMetadata(
+  "Tree Service in Modesto, CA",
+  "Tree trimming, tree removal and stump grinding in Modesto, CA and Oakdale. Call Classic Tree Service or send photos to request a free estimate.",
+  "/",
+);
 
 const Home = () => {
   return (
     <main>
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero__media" aria-hidden="true" />
+        <div className="hero__media" aria-hidden="true">
+          <Image src="/trimming.jpg" alt="" fill sizes="(max-width: 980px) 100vw, 51vw" preload />
+        </div>
         <div className="hero__content">
-          <p className="eyebrow">Local, licensed and insured tree service</p>
-          <h1 id="hero-title">Affordable Tree Service in Modesto, CA</h1>
+          <p className="eyebrow">Local, insured tree service</p>
+          <h1 id="hero-title">Professional Tree Services in Modesto, CA</h1>
           <p className="hero__lead">
             Tree trimming, tree removal, stump grinding, palm tree care, and storm
-            cleanup for homeowners and businesses across the Central Valley.
+            cleanup for homeowners and businesses in Modesto, Oakdale, and nearby Central Valley communities.
           </p>
           <div className="hero__actions" aria-label="Primary calls to action">
             <a className="btn btn--primary" href={`tel:${primaryPhone}`}>
@@ -72,12 +72,12 @@ const Home = () => {
       <section className="section" aria-labelledby="services-title">
         <div className="section__heading">
           <p className="eyebrow">Tree services</p>
-          <h2 id="services-title">Everything your yard needs, priced clearly.</h2>
+          <h2 id="services-title">Tree trimming, removal, and stump grinding in Modesto.</h2>
         </div>
         <div className="service-grid">
           {treeServices.map((service) => (
             <article className="service-card" key={service.title}>
-              <Image src={service.image} alt={service.alt} width={720} height={540} />
+              <Image src={service.image} alt={service.alt} width={720} height={540} sizes="(max-width: 720px) 100vw, (max-width: 980px) 50vw, 280px" />
               <div>
                 <h3>{service.title}</h3>
                 <p>{service.summary}</p>

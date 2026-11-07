@@ -1,7 +1,8 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { displayPhone, primaryPhone, serviceAreas, siteUrl, treeServices } from "@/lib/site";
+import { displayPhone, primaryPhone, serviceAreas, treeServices } from "@/lib/site";
 import { jsonLd, serviceAreaPageSchema } from "@/lib/schema";
 
 type PageProps = {
@@ -17,18 +18,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const area = serviceAreas.find((item) => item.slug === city);
   if (!area) return {};
 
-  return {
-    title: `Affordable Tree Service in ${area.name}, ${area.region}`,
-    description: `Affordable tree trimming, tree removal, stump grinding, palm tree care, and cleanup in ${area.name}, ${area.region}. Request a free estimate from Classic Tree Service.`,
-    alternates: {
-      canonical: `/service-areas/${area.slug}`,
-    },
-    openGraph: {
-      title: `Affordable Tree Service in ${area.name}, ${area.region}`,
-      description: `Tree trimming, removal, stump grinding, palm tree care, and cleanup in ${area.name}.`,
-      url: `${siteUrl}/service-areas/${area.slug}`,
-    },
-  };
+  return pageMetadata(
+    `Affordable Tree Service in ${area.name}, ${area.region}`,
+    `Tree trimming, tree removal and stump grinding in ${area.name}, ${area.region}. Call Classic Tree Service or send photos to request a free estimate.`,
+    `/service-areas/${area.slug}`,
+  );
 }
 
 export default async function ServiceAreaPage({ params }: PageProps) {
@@ -69,11 +63,39 @@ export default async function ServiceAreaPage({ params }: PageProps) {
               <span>{service.title.charAt(0)}</span>
               <h3>{service.title}</h3>
               <p>{service.summary}</p>
-              <Link href={`/services/${service.slug}`}>View service</Link>
+              <Link href={`/services/${service.slug}`}>{service.title} in {area.name}</Link>
             </article>
           ))}
         </div>
       </section>
+
+      {area.slug === "oakdale" && (
+        <section className="section" aria-labelledby="oakdale-planning-title">
+          <div className="section__heading">
+            <p className="eyebrow">Planning tree work in Oakdale</p>
+            <h2 id="oakdale-planning-title">From tree removal to a usable yard</h2>
+          </div>
+          <div className="process__steps">
+            <article>
+              <h3>Tree removal in Oakdale</h3>
+              <p>For an unwanted or damaged tree, send photos of the whole tree and nearby structures. Include access details and whether you want the stump addressed as part of the same estimate.</p>
+              <Link href="/services/tree-removal">Explore tree removal and cleanup</Link>
+            </article>
+            <article>
+              <h3>Stump grinding in Oakdale</h3>
+              <p>You can request grinding for an old stump even if you do not need a tree removed. Share the stump width, gate access and your plans for the space. Ask how wood chips and the remaining area will be handled.</p>
+              <Link href="/services/stump-grinding">Plan your Oakdale stump grinding job</Link>
+            </article>
+            <article>
+              <h3>Keeping a tree with trimming</h3>
+              <p>If your goal is roof clearance or managing overgrown branches, describe that goal when requesting an estimate. Trimming and removal serve different needs; compare the scope before choosing.</p>
+              <Link href="/services/tree-trimming">Learn about tree trimming</Link>
+            </article>
+          </div>
+          <p>For an Oakdale estimate, include your job location, contact details and photos in the online form, or call {displayPhone}. Tell us about each tree or stump so the quote can address the full project.</p>
+          <Link className="btn btn--primary" href="/contact">Request an Oakdale tree service estimate</Link>
+        </section>
+      )}
 
       <section className="affordable-band" aria-labelledby="area-affordable-title">
         <div>

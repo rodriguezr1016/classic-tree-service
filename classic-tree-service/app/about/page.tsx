@@ -1,22 +1,20 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Learn about Classic Tree Service, a licensed and insured local tree company serving Modesto, Merced, and surrounding California areas.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+export const metadata: Metadata = pageMetadata(
+  "About Our Local Tree Service",
+  "Meet Classic Tree Service, serving Modesto, Oakdale and nearby Central Valley communities with tree trimming, removal and stump grinding.",
+  "/about",
+);
 
 const About = () => {
   return (
-    <div className="about">
+    <main className="about">
       <h1>About Classic Tree Service</h1>
       <div className="ins">
-        <Image src="/sky-tree.jpeg" alt="Healthy trees in California" width={554} height={364} />
+        <Image src="/sky-tree.jpeg" alt="Sunlight through a green tree canopy" width={554} height={364} sizes="(max-width: 1120px) 100vw, 1080px" />
         <h2 className="who">Who We Are</h2>
         <p>
           Classic Tree Service is a small, dedicated team committed to providing
@@ -29,7 +27,7 @@ const About = () => {
       </div>
       <div className="info">
         <div className="more">
-          <Image src="/3-tree copy.jpg" alt="Tree trimming service" width={636} height={318} />
+          <Image src="/3-tree copy.jpg" alt="Tree trimming service" width={636} height={318} sizes="(max-width: 720px) 100vw, 540px" />
           <h2>Services</h2>
           <p>
             At Classic Tree Service, we specialize in tree trimming, tree removal,
@@ -40,17 +38,21 @@ const About = () => {
           </p>
         </div>
         <div className="more">
-          <Image src="/yellow-tree.jpeg" alt="Licensed and insured tree service" width={636} height={318} />
-          <h2>Licensed and Insured</h2>
+          <Image src="/yellow-tree.jpeg" alt="Tree-lined path with golden autumn leaves" width={636} height={318} sizes="(max-width: 720px) 100vw, 540px" />
+          <h2>Insured Tree Care</h2>
           <p>
-            Classic Tree Service is fully licensed and insured, ensuring safe and
+            Classic Tree Service is insured and provides
             reliable tree care services. Your property and peace of mind are our top
             priorities. Trust us to handle your tree care needs with professionalism
             and care.
           </p>
         </div>
       </div>
-    </div>
+      <section aria-labelledby="payment-title">
+        <h2 id="payment-title">Payment options</h2>
+        <p>We accept cash, check, and Zelle. Request a free estimate before scheduling your tree service.</p>
+      </section>
+    </main>
   );
 };
 

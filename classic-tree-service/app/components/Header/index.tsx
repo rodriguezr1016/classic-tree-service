@@ -22,7 +22,7 @@ const Header = () => {
           </span>
           <span>
             <strong>Classic Tree Service</strong>
-            <small>Licensed & insured local tree care</small>
+            <small>Insured local tree care</small>
           </span>
         </Link>
         <nav aria-label="Main navigation">

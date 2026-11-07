@@ -91,12 +91,19 @@ p {
 }
 
 .hero__media {
-  background-image:
-    linear-gradient(90deg, rgba(16, 40, 27, 0.12), rgba(16, 40, 27, 0.58)),
-    url("/trimming.jpg");
-  background-position: center;
-  background-size: cover;
+  position: relative;
   min-height: 420px;
+}
+
+.hero__media img {
+  object-fit: cover;
+}
+
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16, 40, 27, 0.12), rgba(16, 40, 27, 0.58));
 }
 
 .hero__content {
@@ -385,6 +392,7 @@ p {
 }
 
 .ins img {
+  height: auto;
   aspect-ratio: 16 / 7;
   object-fit: cover;
   width: 100%;
@@ -418,6 +426,7 @@ p {
 }
 
 .more img {
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   width: 100%;
@@ -468,6 +477,7 @@ p {
 }
 
 .detail-hero img {
+  height: auto;
   aspect-ratio: 5 / 4;
   border-radius: 8px;
   object-fit: cover;
@@ -614,4 +624,9 @@ p {
   .hero__content {
     max-width: 390px;
   }
+}
+
+.process__steps h2 {
+  font-size: 1.35rem;
+  line-height: 1.25;
 }
